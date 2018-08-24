@@ -2,9 +2,19 @@
 
 ## Is this a BUG REPORT or FEATURE REQUEST?
 
-Choose one: BUG REPORT or FEATURE REQUEST
-
-<!--
+restoration backup not working 
+apiVersion: mysql.oracle.com/v1alpha1
+kind: Restore
+metadata:
+  name: mysql-restore
+spec:
+  clusterRef:
+     name: mysql-cluster
+  backupRef:
+     name: mysql-backup
+     
+     
+     <!--
 If this is a BUG REPORT, please:
   - Fill in as much of the template below as you can.  If you leave out information, we can't help you as well.
 
@@ -21,15 +31,18 @@ explain why.
 **MySQL Operator Version**:
 
 **Environment**:
-- **Kubernetes version** (use `kubectl version`):
-- **Cloud provider or hardware configuration**:
+- **Kubernetes version** (use `kubectl version`): 1.11
+- **Cloud provider or hardware configuration**: GCP
 - **OS** (e.g. from /etc/os-release):
-- **Kernel** (e.g. `uname -a`):
+- **Kernel** (e.g. `uname -a`):  4.15.0-32-generic
 - **Others**:
 
 ## What happened?
+ Warning  FailedValidation  14m   operator-restore-controller  [spec.cluster.name: Required value: a cluster to restore into is required, spec.backup.name: Required value: a backup to restore is required]
+
 
 ## What you expected to happen?
+Should successfull restore in the cluster 
 
 ## How to reproduce it (as minimally and precisely as possible)?
 
